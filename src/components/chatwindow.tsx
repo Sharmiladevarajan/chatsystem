@@ -1,7 +1,15 @@
 import React from "react";
 
+interface Message {
+  sender: string;
+  text: string;
+}
 
-const ChatWindow = ({ messages }) => {
+interface ChatWindowProps {
+  messages: Message[];
+}
+
+const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
   return (
     <div className="chat-window">
       <div className="messages">

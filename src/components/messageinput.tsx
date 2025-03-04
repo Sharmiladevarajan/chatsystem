@@ -1,16 +1,13 @@
 import React, { useState } from "react";
 import { FaPaperPlane, FaPaperclip, FaMicrophone } from "react-icons/fa";
 import "./messageinput.css"; // Ensure global styles are linked
-const MessageInput = ({ handleSend }) => {
-  const [message, setMessage] = useState("");
 
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      console.log("File uploaded:", file.name);
-      // Handle file upload logic here
-    }
-  };
+interface MessageInputProps {
+  handleSend: (message: string) => void;
+}
+
+const MessageInput: React.FC<MessageInputProps> = ({ handleSend }) => {
+  const [message, setMessage] = useState("");
 
   const handleSendMessage = () => {
     if (message.trim()) {
@@ -30,17 +27,22 @@ const MessageInput = ({ handleSend }) => {
         type="file"
         accept="image/*"
         style={{ display: "none" }}
-        onChange={handleFileUpload}
       />
 
-      {/* Text Input */}
-      <input
-        type="text"
+      {/* Expandable Textarea */}
+      <textarea
         className="message-field"
         placeholder="Type your message..."
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" && !e.shiftKey) {
+            e.preventDefault();
+            handleSendMessage();
+          }
+        }}
+        rows={1} // Start with one row
+        style={{ resize: "none", overflow: "hidden" }} // Prevent manual resizing
       />
 
       {/* Mic & Send Buttons */}

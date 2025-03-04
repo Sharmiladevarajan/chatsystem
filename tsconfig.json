@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx", // Enables JSX
+    "moduleResolution": "node", // Ensures compatibility with Node modules
+    "allowSyntheticDefaultImports": true, // Allows React import
+    "strict": true // Ensures strict type checking
+  }
+}
