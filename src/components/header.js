@@ -5,8 +5,8 @@ const Header = () => {
     <div className="header">
       <h2><strong>CHAT-AI</strong></h2>
       <div className="header-icons">
-        <span>Train</span>
-        <span>👤</span>
+       <img src="images/user.png" className="user-icon"/>
+       
       </div>
     </div>
   );

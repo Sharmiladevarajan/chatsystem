@@ -18,10 +18,11 @@ code {
 }
 
 .header {
+  border-radius: 10px;
   display: flex;
   justify-content: space-between;
   padding-left: 8px;
-  background: lightgray;
+  background: #817e8c;
 }
 
 .main-container {
@@ -33,7 +34,7 @@ code {
   width: 240px;
   margin-right: 5px;
   height: 96vh;
-  background: #d6cdcb;
+  background: #36343d;
   padding: 15px;
   transition: width 0.3s ease;
 }
@@ -69,15 +70,20 @@ code {
 
 
 .chat-window {
-  height: 96vh;
-  flex: 1;
+  overflow-y: auto; /* Automatically show scrollbar only when content exceeds */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  height: 96vh; /* Fixed height for the container */
+  flex: 1 1; /* Flex growth and shrink allowed */
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column; /* To stack chat messages vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align messages from top to bottom */
+  padding: 10px; /* Optional padding to give breathing space */
+  box-sizing: border-box; /* Ensure padding doesn't affect height */
 }
 
 .message-input {
   display: flex;
   padding: 10px;
-  background: #e0e0e0;
+  background: #817e8c;
 }
