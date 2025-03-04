@@ -1,0 +1,53 @@
+.message-input {
+  position: relative;
+  
+  border-radius: 25px;
+  background: #817e8c;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.message-input input {
+  flex: 1;
+  border: none;
+  padding: 10px 100px 10px 60px; /* Space for icons */
+  font-size: 22px;
+  outline: none;
+  background: transparent;
+  color: white;
+  border-radius: 25px;
+}
+
+.upload-icon {
+  position: absolute;
+  left: 10px; /* Left Side */
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.attachment-icon {
+  position: absolute;
+  left: 50px; /* Next to Upload Icon */
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.mic-icon {
+  position: absolute;
+  right: 50px; /* Mic near Send */
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.send-icon {
+  position: absolute;
+  right: 10px; /* Right Side */
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+}

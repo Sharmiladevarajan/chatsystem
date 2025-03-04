@@ -1,0 +1,89 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-style: normal;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  padding-left: 8px;
+  background: #817e8c;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+}
+
+.sidebar {
+  width: 240px;
+  margin-right: 5px;
+  height: 96vh;
+  background: #36343d;
+  padding: 15px;
+  transition: width 0.3s ease;
+}
+
+.sidebar.collapsed {
+  width: 50px;
+  overflow: hidden;
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.chat-list {
+  margin-top: 10px;
+}
+
+.chat-item {
+  padding: 10px;
+  background: white;
+  margin-bottom: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.chat-item.active {
+  background: #b0b0b0;
+  font-weight: bold;
+}
+
+
+.chat-window {
+  overflow-y: auto; /* Automatically show scrollbar only when content exceeds */
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  height: 96vh; /* Fixed height for the container */
+  flex: 1 1; /* Flex growth and shrink allowed */
+  display: flex;
+  flex-direction: column; /* To stack chat messages vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: flex-start; /* Align messages from top to bottom */
+  padding: 10px; /* Optional padding to give breathing space */
+  box-sizing: border-box; /* Ensure padding doesn't affect height */
+}
+
+.message-input {
+  display: flex;
+  padding: 10px;
+  background: #817e8c;
+}
