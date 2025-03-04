@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 
-
 const Sidebar = () => {
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [activeChat, setActiveChat] = useState(null);
@@ -12,14 +11,20 @@ const Sidebar = () => {
 
   return (
     <div className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
-      <button className="toggle-btn" onClick={toggleSidebar}>
-        {isCollapsed ? "➤" : "◀"}
-      </button>
+      <div className="sidebar-header">
+        <button className="toggle-btn" onClick={toggleSidebar}>
+          {isCollapsed ? "➤" : "◀"}
+        </button>
+        {!isCollapsed && (
+          <button className="train-btn">Train</button>
+        )}
+      </div>
 
       {!isCollapsed && (
         <>
-          <h3><strong>New Chat</strong></h3>
-          <p>Explore Chats</p>
+          <h3 style={{ color: "white" }}><strong>New Chat</strong></h3>
+<p style={{ color: "white" }}>Explore Chats</p>
+
           <div className="chat-list">
             {chats.map((chat, index) => (
               <div
