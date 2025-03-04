@@ -58,6 +58,7 @@ const MessageInput = ({ handleSend }) => {
       <FaPaperclip className="attachment-icon" />
       <FaPaperPlane className="send-icon" />
     </div> */}
+console.log();
 
     return (
       <div className="message-input">
