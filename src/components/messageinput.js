@@ -1,9 +1,6 @@
 import React, { useState } from "react";
-import { FaPaperPlane,FaPaperclip,FaUpload } from "react-icons/fa";
-
-
-
-
+import { FaPaperPlane, FaPaperclip, FaMicrophone } from "react-icons/fa";
+import "./messageinput.css"; // Ensure global styles are linked
 const MessageInput = ({ handleSend }) => {
   const [message, setMessage] = useState("");
 
@@ -11,63 +8,46 @@ const MessageInput = ({ handleSend }) => {
     const file = event.target.files[0];
     if (file) {
       console.log("File uploaded:", file.name);
-      // You can handle the file upload logic here (e.g., send to backend)
+      // Handle file upload logic here
     }
   };
 
- 
-//     <div className="message-input">
-//       {/* File Upload Button */}
-//       <label htmlFor="file-upload">
-//       <img 
-//   // src="images/attachment-icon.svg" 
-//   src="images/attachment.png" 
-//   className="attachment-icon"
-//   alt="Upload Icon" 
-//   width={20} 
-//   height={20} 
-  
-//   onMouseOver={(e) => (e.currentTarget.style.opacity = 1)} // Full opacity on hover
-//   onMouseOut={(e) => (e.currentTarget.style.opacity = 0.9)} // Reverts back
-// />
-//       </label>
-//       <input
-//         id="file-upload"
-//         type="file"
-//         accept="image/*"
-//         style={{ display: "none" }}
-//         onChange={handleFileUpload}
-//       />
+  const handleSendMessage = () => {
+    if (message.trim()) {
+      handleSend(message);
+      setMessage(""); // Clear input field after sending
+    }
+  };
 
-//       {/* Text Input Field */}
-//       <input
-//         type="text"
-//         placeholder="How may I help you today?"
-//         value={message}
-//         onChange={(e) => setMessage(e.target.value)}
-//         onKeyPress={(e) => e.key === "Enter" && handleSend()}
-//       />
+  return (
+    <div className="message-input">
+      {/* File Upload */}
+      <label htmlFor="file-upload">
+        <FaPaperclip className="attachment-icon" />
+      </label>
+      <input
+        id="file-upload"
+        type="file"
+        accept="image/*"
+        style={{ display: "none" }}
+        onChange={handleFileUpload}
+      />
 
-//       {/* Send Button */}
-//       {/* <FaPaperPlane className="send-icon" onClick={handleSend} /> */}
-//       <img src="images/send.png" className="send-icon" onClick={handleSend} ></img>
-//     </div>
-{/* <div className="message-input">
-      <input type="text" placeholder="Type your message..." />
-      
-      <FaPaperclip className="attachment-icon" />
-      <FaPaperPlane className="send-icon" />
-    </div> */}
-console.log();
+      {/* Text Input */}
+      <input
+        type="text"
+        className="message-field"
+        placeholder="Type your message..."
+        value={message}
+        onChange={(e) => setMessage(e.target.value)}
+        onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
+      />
 
-    return (
-      <div className="message-input">
-        <input type="text" placeholder="Type your message..." />
-        <img src="images/attachment.png" className="upload-icon" alt="Upload" />
-        <img src="images/mic.png" className="mic-icon" alt="Voice" />
-        <img src="images/send.png" className="send-icon" alt="Send" />
-      </div>
-    );
+      {/* Mic & Send Buttons */}
+      <FaMicrophone className="mic-icon" />
+      <FaPaperPlane className="send-icon" onClick={handleSendMessage} />
+    </div>
+  );
 };
 
 export default MessageInput;
