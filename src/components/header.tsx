@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <div
       className="header"
@@ -44,11 +44,11 @@ const Header = () => {
             transition: "transform 0.3s ease-in-out, background-color 0.3s ease-in-out",
           }}
           onClick={() => alert("User Icon Clicked!")} // Placeholder function
-          onMouseOver={(e) => {
+          onMouseOver={(e: React.MouseEvent<HTMLImageElement>) => {
             e.currentTarget.style.transform = "scale(1.1)";
             e.currentTarget.style.backgroundColor = "#ddd"; // Light gray on hover
           }}
-          onMouseOut={(e) => {
+          onMouseOut={(e: React.MouseEvent<HTMLImageElement>) => {
             e.currentTarget.style.transform = "scale(1)";
             e.currentTarget.style.backgroundColor = "white";
           }}
