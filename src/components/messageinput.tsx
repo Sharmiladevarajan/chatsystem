@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaPaperPlane, FaPaperclip, FaMicrophone } from "react-icons/fa";
-import "./messageinput.css"; // Ensure global styles are linked
+
 
 interface MessageInputProps {
   handleSend: (message: string) => void;
