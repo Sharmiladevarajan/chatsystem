@@ -36,8 +36,7 @@
   }
   .message-field {
     width: 100%;
-    min-height: 40px;
-    max-height: 150px;
+    min-height: 30px;
     padding: 10px;
     font-size: 16px;
     border-radius: 8px;
