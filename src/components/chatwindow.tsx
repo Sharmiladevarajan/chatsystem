@@ -1,8 +1,9 @@
 import React from "react";
+import { User, Bot } from "lucide-react";
 
 interface Message {
-  sender: string;
-  text: string;
+  role: string; // "user" or "bot"
+  content: string;
 }
 
 interface ChatWindowProps {
@@ -10,15 +11,21 @@ interface ChatWindowProps {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
+  
   return (
     <div className="chat-window">
-      <div className="messages">
-        {messages.map((msg, index) => (
-          <div key={index} className={`message ${msg.sender}`}>
-            {msg.text}
-          </div>
-        ))}
-      </div>
+      {messages.map((msg:any, index:any) => (
+        <div
+          key={index}
+          className={`message-wrapper ${
+            msg.role === "user" ? "user-message" : "bot-message"
+          }`}
+        >
+          {msg.role === "bot" && <Bot className="icon" />}
+          <div className="message">{msg.content}</div>
+          {msg.role === "user" && <User className="icon" />}
+        </div>
+      ))}
     </div>
   );
 };
