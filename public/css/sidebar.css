@@ -2,15 +2,9 @@
   overflow: auto;
   border-radius: 6px;
     width: 250px;
-<<<<<<< HEAD
     height: auto;
      background: #36343d;
     padding: 15px;
-=======
-    height: 100vh;
-    background: #36343d;
-    padding:15px 5px 15px 10px;
->>>>>>> bba77041e728265a67a2cd39bd055cfd9317f907
     transition: width 0.3s ease;
     
   }
