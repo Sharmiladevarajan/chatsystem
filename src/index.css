@@ -72,7 +72,7 @@ code {
 .chat-window {
   overflow-y: auto; /* Automatically show scrollbar only when content exceeds */
   overflow-x: hidden; /* Prevent horizontal scroll */
-  height: 96vh; /* Fixed height for the container */
+  height: 81vh; /* Fixed height for the container */
   flex: 1 1; /* Flex growth and shrink allowed */
   display: flex;
   flex-direction: column; /* To stack chat messages vertically */
