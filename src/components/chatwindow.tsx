@@ -14,15 +14,16 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
   const chatRef = useRef<HTMLDivElement>(null);
 
   // Automatically scroll to the bottom when messages change
-  useEffect(() => {
-    if (chatRef.current) {
-      chatRef.current.scrollTop = chatRef.current.scrollHeight;
-    }
-  }, [messages]);
+  // useEffect(() => {
+  //   if (chatRef.current) {
+  //     chatRef.current.scrollTop = chatRef.current.scrollHeight;
+  //   }
+  // }, [messages]);
 
   return (
-    <div className="chat-window" ref={chatRef}>
-      {messages.map((msg, index) => (
+    <div className="chat-window" >
+    {/* <div className="chat-window" ref={chatRef}> */}
+      {messages?.map((msg, index) => (
         <div
           key={index}
           className={`message-wrapper ${

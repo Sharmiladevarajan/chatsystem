@@ -3,8 +3,8 @@ import ChatWindow from "./chatwindow";
 import MessageInput from "./messageinput";
 import Header from "./header";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { createOrUpdateChat } from "../Services/Api";
+import {  useNavigate, useSearchParams } from "react-router-dom";
+import { createOrUpdateChat ,fetchChatHistory,fetchAllChats} from "../Services/Api";
 interface userDetails{
 userName:string,
 userEmail:string,
@@ -12,27 +12,48 @@ userId:string
 }
 export function MainComponent(){
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate=useNavigate()
     const chatId = searchParams.get("id"); // Get chatId from URL 
-    const[messages,setMessages]=useState<any>([
-        { role: "user", content: "Hello, how can I help you?" },       // User input
-        { role: "assistant", content: "Hi! I need some information about your services." }, // Bot response
-        { role: "user", content: "Sure! We offer AI-powered chat systems. What would you like to know?" }, 
-        { role: "assistant", content: "Can you explain the pricing model?" }, 
-        { role: "user", content: "Our pricing depends on the number of users and features you need. Do you need more details on custom plans?" }, 
-        { role: "assistant", content: "Yes, please!" },{ role: "user", content: "Hello, how can I help you?" },       // User input
-        { role: "assistant", content: "Hi! I need some information about your services." }, // Bot response
-        { role: "user", content: "Sure! We offer AI-powered chat systems. What would you like to know?" }, 
-        { role: "assistant", content: "Can you explain the pricing model?" }, 
-        { role: "user", content: "Our pricing depends on the number of users and features you need. Do you need more details on custom plans?" }, 
-        { role: "assistant", content: "Yes, please!" }
+    const[messages,setMessages]=useState<any>([])
+    const [pastChats,setPastChats]=useState<any>([
+        { chatId: "1", chatName: "Chat 1" },
+        { chatId: "2", chatName: "Chat 2" },
+        { chatId: "3", chatName: "Chat 3" },
+        { chatId: "4", chatName: "Chat 4" },
+        { chatId: "5", chatName: "Chat 5" },
+        { chatId: "6", chatName: "Chat 6" },
+        { chatId: "7", chatName: "Chat 7" },
       ])
+    
     const [userData,setUserData]=useState<userDetails>({
         userName:"John",
         userEmail:"john.doe@example.com",
         userId:"c31fc29b-f8b8-11ef-b3ac-3c0af3902f08"
         })
 
-    // useEffect(()=>{},[])
+    useEffect(()=>{
+if(userData){
+    if(chatId){
+        getChatHistory(chatId)
+    }else{
+        getAllChats()
+    }
+}else{
+    navigate("/")
+}
+
+    },[])
+const getAllChats=async()=>{
+    try {
+        const getChats=await fetchAllChats({userId:userData.userId})
+        if(getChats.status==201){
+            setPastChats(getChats.data)
+        }
+    } catch (error) {
+        console.log();
+        
+    }
+}
 
 const handleSend=async(input:string)=>{
 
@@ -54,6 +75,23 @@ const handleSend=async(input:string)=>{
         }
         
     } catch (error) {
+        console.log(error,"in handlesend funciton");
+        
+    }
+}
+
+const getChatHistory=async(currentChatId:string)=>{
+    try {
+       
+        if(currentChatId!==""){
+            searchParams.set("id", currentChatId); // Update the query param
+            setSearchParams(searchParams);
+        const getHistory=await fetchChatHistory({chatId:currentChatId})}else{
+            navigate("/chat")
+        }
+        
+
+    } catch (error) {
         
     }
 }
@@ -62,11 +100,9 @@ const handleSend=async(input:string)=>{
 
 
 
-
-
     return(
      <div className="main-container">
-            <Sidebar />
+            <Sidebar chats={pastChats} getFunction={getChatHistory}/>
             <div className="content-container">
               <Header />
               <ChatWindow messages={messages} />
