@@ -44,6 +44,7 @@
   }
   
   .chat-item {
+    color: black;
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -95,6 +96,7 @@
   
   
   .chat-item {
+    color: black;
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -143,7 +145,7 @@
   .chat-item {
     padding: 10px;
     background: #555;
-    color: white;
+    color: black;
     border-radius: 5px;
     cursor: pointer;
   }
