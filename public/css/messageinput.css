@@ -30,7 +30,7 @@
 
 .attachment-icon {
   position: absolute;
-  left: 50px; /* Next to Upload Icon */
+  left: 30px; 
   cursor: pointer;
   width: 25px;
   height: 25px;
@@ -38,10 +38,11 @@
 
 .mic-icon {
   position: absolute;
-  right: 50px; /* Mic near Send */
+  right: 50px; 
   cursor: pointer;
   width: 25px;
   height: 25px;
+  margin-top: 50px;
 }
 
 .send-icon {
@@ -56,7 +57,7 @@
   align-items: center;
   gap: 10px;
   background: #1a1a1a;
-  padding: 10px;
+  padding: 30px;
   border-radius: 8px;
 }
 
@@ -65,9 +66,10 @@
   color: white;
   background: #333;
   border: none;
-  padding: 8px;
+  padding: 23px;
   border-radius: 4px;
   outline: none;
+  margin-left: 34px;
 }
 
 .attachment-icon,
