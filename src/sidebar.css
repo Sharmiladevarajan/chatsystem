@@ -1,4 +1,5 @@
 .sidebar {
+  overflow: auto;
     width: 250px;
     height: auto;
     background: #d6cdcb;

@@ -1,10 +1,12 @@
 .sidebar {
+  overflow: auto;
   border-radius: 6px;
     width: 250px;
     height: auto;
      background: #36343d;
     padding: 15px;
     transition: width 0.3s ease;
+    
   }
   
   .sidebar.collapsed {
@@ -31,6 +33,7 @@
   
   .chat-list {
     margin-top: 10px;
+    margin-right: 5px;
   }
   .sidebar {
     width: 250px;
@@ -41,6 +44,7 @@
   }
   
   .chat-item {
+    color: black;
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -89,11 +93,10 @@
     background-color: rgba(255, 255, 255, 0.1);
   }
   
-  .chat-list {
-    margin-top: 10px;
-  }
+  
   
   .chat-item {
+    color: black;
     padding: 8px;
     border-radius: 5px;
     cursor: pointer;
@@ -106,4 +109,68 @@
   }
   
 
+
+
+
+
+  .sidebar {
+    width: 250px; /* Adjust the width as per your layout */
+    height: 100vh; /* Full height */
+    background: #333;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Prevent parent scroll */
+  }
+  
+  .scroll-sidebar {
+    flex: 1; /* Make the container flexible */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 10px;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background: #444;
+    color: white;
+  }
+  
+  .chat-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Space between items */
+  }
+  
+  .chat-item {
+    padding: 10px;
+    background: #555;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .chat-item:hover {
+    background: #777;
+  }
+  
+  .chat-item.active {
+    background: #007bff;
+    color: white;
+  }
+  
+
+  .scroll-sidebar::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .scroll-sidebar::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 10px;
+  }
+  
+  .scroll-sidebar::-webkit-scrollbar-track {
+    background: #333;
+  }
+  
   

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { User, Bot } from "lucide-react";
 
 interface Message {
@@ -11,10 +11,18 @@ interface ChatWindowProps {
 }
 
 const ChatWindow: React.FC<ChatWindowProps> = ({ messages }) => {
-  
+  const chatRef = useRef<HTMLDivElement>(null);
+
+  // Automatically scroll to the bottom when messages change
+  useEffect(() => {
+    if (chatRef.current) {
+      chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    }
+  }, [messages]);
+
   return (
-    <div className="chat-window">
-      {messages.map((msg:any, index:any) => (
+    <div className="chat-window" ref={chatRef}>
+      {messages.map((msg, index) => (
         <div
           key={index}
           className={`message-wrapper ${
