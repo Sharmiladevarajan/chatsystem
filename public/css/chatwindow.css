@@ -4,7 +4,7 @@
 
 .chat-window {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: scroll;
     padding: 15px;
     background: #f9f9f9;
   }
@@ -68,4 +68,33 @@
     margin: 0 10px;
     color: #0078d7; /* Icon color */
   }
+
+  .chat-window {
+    overflow-y: scroll;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f9f9f9;
+  }
+  
+  .message {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 70%;
+  }
+  
+  .user {
+    align-self: flex-end; /* User messages on the right */
+    background: #007bff;
+    color: #fff;
+  }
+  
+  .bot {
+    align-self: flex-start; /* Bot messages on the left */
+    background: #e0e0e0;
+    color: #333;
+  }
+  
   

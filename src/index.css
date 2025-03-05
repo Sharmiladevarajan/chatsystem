@@ -35,7 +35,7 @@ code {
   margin-right: 5px;
   height: unset;
   background: #36343d;
-  padding: 15px;
+  padding: 15px 5px 15px 10px;
   transition: width 0.3s ease;
 }
 
@@ -51,9 +51,7 @@ code {
   cursor: pointer;
 }
 
-.chat-list {
-  margin-top: 10px;
-}
+
 
 .chat-item {
   padding: 10px;
@@ -72,7 +70,7 @@ code {
 .chat-window {
   overflow-y: auto; /* Automatically show scrollbar only when content exceeds */
   overflow-x: hidden; /* Prevent horizontal scroll */
-  height: 96vh; /* Fixed height for the container */
+  height: 81vh; /* Fixed height for the container */
   flex: 1 1; /* Flex growth and shrink allowed */
   display: flex;
   flex-direction: column; /* To stack chat messages vertically */
