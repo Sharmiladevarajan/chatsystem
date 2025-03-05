@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const Sidebar: React.FC = () => {
   const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
   const [activeChat, setActiveChat] = useState<number | null>(null);
-  const chats: string[] = ["Chat 1", "Chat 2", "Chat 3", "Chat 4"];
+  const chats: string[] = ["Chat 1", "Chat 2", "Chat 3", "Chat 4","Chat 1", "Chat 2", "Chat 3", "Chat 4","Chat 1", "Chat 2", "Chat 3", "Chat 1", "Chat 2", "Chat 3", "Chat 4","Chat 4"];
 
   const toggleSidebar = () => {
     setIsCollapsed(!isCollapsed);
@@ -12,6 +12,7 @@ const Sidebar: React.FC = () => {
 
   return (
     <div className={`sidebar ${isCollapsed ? "collapsed" : ""}`}>
+      <div className="scroll-sidebar">
       <div className="sidebar-header">
         <button className="toggle-btn" onClick={toggleSidebar}>
           {isCollapsed ? "➤" : "◀"}
@@ -39,6 +40,7 @@ const Sidebar: React.FC = () => {
           </div>
         </>
       )}
+      </div>
     </div>
   );
 };
