@@ -27,3 +27,45 @@
     align-self: flex-end;
   }
   
+
+
+
+  .message-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    width: 100%;
+  }
+  
+  .user-message {
+    justify-content: flex-end; /* Align user messages to the right */
+  }
+  
+  .bot-message {
+    justify-content: flex-start; /* Align bot messages to the left */
+  }
+  
+  .message {
+    padding: 10px 15px;
+    border-radius: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+  
+  .user-message .message {
+    background-color: #0078d7; /* Blue for user messages */
+    color: white;
+  }
+  
+  .bot-message .message {
+    background-color: #e0e0e0; /* Gray for bot messages */
+    color: black;
+  }
+  
+  .icon {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    color: #0078d7; /* Icon color */
+  }
+  
